@@ -3,16 +3,13 @@ import styled from 'styled-components';
 
 const Card = styled.div`
     border:1px solid black;
-    width: 33%;
+    margin: 5%;
 `;
 
 
 function Members(props){
     return(
-    <div className="cardContainer"> 
-       <div> 
-       <h1>Member Placeholder</h1>
-       </div>
+    <div> 
        <div>
         {props.memList.map(member =>(
             <Card>

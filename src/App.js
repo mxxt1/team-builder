@@ -5,9 +5,10 @@ import styled from 'styled-components';
 import './App.css';
 
 const CardContainer = styled.div`
-  display:flex;
-  border: 1px solid red;
-
+  // border: 1px solid red;
+  // display: flex;
+  // width: 80%;
+  // margin: 0 auto;
 
 `;
 
@@ -21,18 +22,18 @@ function App() {
       name: "Matt Gill",
       email: "me@me.me",
       role: "Student"
-    },
-    {
-      id: 0,
-      name: "Matt Gill",
-      email: "me@me.me",
-      role: "Student"
     }
+    // {
+    //   id: 0,
+    //   name: "Matt Gill",
+    //   email: "me@me.me",
+    //   role: "Student"
+    // }
   ]);
 
   const addMember = member => {
     const newMember = {
-      id: Date.now(),
+      id: Date.now,
       name: member.name,
       email: member.email,
       role: member.role
@@ -43,9 +44,12 @@ function App() {
   return (
     <div className="App">
       <Form addMember={addMember}/>
-      <CardContainer>
-      <Members memList={memList}/>
-      </CardContainer>
+      <>
+      <h1>Members</h1>
+      </>
+     <CardContainer>
+     <Members memList={memList}/>
+     </CardContainer>
     </div>
   );
 }

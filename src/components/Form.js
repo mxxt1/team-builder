@@ -36,27 +36,33 @@ const formSubmit = e =>{
 };
 
 return(
-<FormContainer>
+<FormContainer onSubmit={formSubmit}>
 <h3>Add a new member</h3>
 <label htmlFor="name">Team Member Name</label>
 <InputItem 
     id="title"
     type="text"
     name="name"
+    onChange={handleChanges}
+    required
 />
 <label htmlFor="email">Email</label>
 <InputItem 
 id="email"
 type="text"
 name="email"
+onChange={handleChanges}
+required
 />
 <label htmlFor="role">Role</label>
 <InputItem 
 id="role"
 type="text"
 name="role"
+onChange={handleChanges}
+required
 />
-
+<button type='submit'>Add Member</button>
 </FormContainer>
 )
 
