@@ -1,24 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import Form from "./components/Form";
+import Members from './components/Members';
+import styled from 'styled-components';
 import './App.css';
 
+const CardContainer = styled.div`
+  display:flex;
+  border: 1px solid red;
+
+
+`;
+
+
 function App() {
+  
+  //set state, add a default entry
+  const [memList, setMemList] = useState([
+    {
+      id: 0,
+      name: "Matt Gill",
+      email: "me@me.me",
+      role: "Student"
+    },
+    {
+      id: 0,
+      name: "Matt Gill",
+      email: "me@me.me",
+      role: "Student"
+    }
+  ]);
+
+  const addMember = member => {
+    const newMember = {
+      id: Date.now(),
+      name: member.name,
+      email: member.email,
+      role: member.role
+    }
+    setMemList([...memList,newMember]);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Form addMember={addMember}/>
+      <CardContainer>
+      <Members memList={memList}/>
+      </CardContainer>
     </div>
   );
 }

@@ -1,0 +1,65 @@
+import React, { useState } from 'react';
+import styled from 'styled-components';
+
+const FormContainer = styled.form`
+    display:flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 25%; 
+    margin: 0 auto;
+    margin-top: 2%;
+    padding: 3%;
+`;
+
+const InputItem = styled.input`
+    padding: 2% 5% 2% 5%;
+    width: 75%;
+    margin: 0 auto;
+`;
+
+function Form(props){
+    console.log(props);
+const [member, setMember] = useState({
+    name: "",
+    email: "",
+    role: ""
+});
+
+const handleChanges = e => {
+    console.log(member);
+    setMember({...member, [e.target.name]: e.target.value});
+};
+
+const formSubmit = e =>{
+    e.preventDefault();
+    props.addMember(member);
+};
+
+return(
+<FormContainer>
+<h3>Add a new member</h3>
+<label htmlFor="name">Team Member Name</label>
+<InputItem 
+    id="title"
+    type="text"
+    name="name"
+/>
+<label htmlFor="email">Email</label>
+<InputItem 
+id="email"
+type="text"
+name="email"
+/>
+<label htmlFor="role">Role</label>
+<InputItem 
+id="role"
+type="text"
+name="role"
+/>
+
+</FormContainer>
+)
+
+}
+
+export default Form;
