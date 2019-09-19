@@ -1,15 +1,11 @@
 import React, {useState} from 'react';
 import Form from "./components/Form";
 import Members from './components/Members';
-import styled from 'styled-components';
+import styled from "styled-components";
 import './App.css';
 
-const CardContainer = styled.div`
-  // border: 1px solid red;
-  // display: flex;
-  // width: 80%;
-  // margin: 0 auto;
-
+const AppContainer = styled.div`
+  // display:flex;
 `;
 
 
@@ -18,40 +14,31 @@ function App() {
   //set state, add a default entry
   const [memList, setMemList] = useState([
     {
-      id: 0,
+      id: 1,
       name: "Matt Gill",
       email: "me@me.me",
       role: "Student"
     }
-    // {
-    //   id: 0,
-    //   name: "Matt Gill",
-    //   email: "me@me.me",
-    //   role: "Student"
-    // }
   ]);
+  //member selection state (for editing)
+  // const [memberToEdit, setMemberToEdit] = useState("");
 
+  // useEffect()
+  //add a new member and member card
   const addMember = member => {
-    const newMember = {
-      id: Date.now,
-      name: member.name,
-      email: member.email,
-      role: member.role
-    }
-    setMemList([...memList,newMember]);
+    setMemList([...memList,member]);
   };
 
   return (
-    <div className="App">
-      <Form addMember={addMember}/>
-      <>
-      <h1>Members</h1>
-      </>
-     <CardContainer>
+    <AppContainer className="App">
+      <Form addMember={addMember} memList={memList}/>
+     <div>
      <Members memList={memList}/>
-     </CardContainer>
-    </div>
+     </div>
+    </AppContainer>
   );
 }
 
 export default App;
+
+

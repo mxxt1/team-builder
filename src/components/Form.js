@@ -8,13 +8,16 @@ const FormContainer = styled.form`
     width: 25%; 
     margin: 0 auto;
     margin-top: 2%;
-    padding: 3%;
+    margin-bottom: 2%;
+    padding: 1%;
+    justify-content:space-between;
 `;
 
 const InputItem = styled.input`
-    padding: 2% 5% 2% 5%;
+    padding: 1% 5% 2% 5%;
     width: 75%;
     margin: 0 auto;
+    margin-bottom:5%;
 `;
 
 function Form(props){
@@ -32,7 +35,21 @@ const handleChanges = e => {
 
 const formSubmit = e =>{
     e.preventDefault();
-    props.addMember(member);
+    const newMember = {
+        ...member,
+        id: props.memList.length+1
+        // name: member.name,
+        // email: member.email,
+        // role: member.role
+    };
+    props.addMember(newMember);
+    //reset
+    setMember({
+        id:"",
+        name: "",
+        email: "",
+        role: ""
+    });
 };
 
 return(
