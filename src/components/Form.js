@@ -61,6 +61,7 @@ return(
     id="title"
     type="text"
     name="name"
+    value= {member.name}
     onChange={handleChanges}
     required
 />
@@ -69,6 +70,7 @@ return(
 id="email"
 type="text"
 name="email"
+value= {member.email}
 onChange={handleChanges}
 required
 />
@@ -77,6 +79,7 @@ required
 id="role"
 type="text"
 name="role"
+value= {member.role}
 onChange={handleChanges}
 required
 />
