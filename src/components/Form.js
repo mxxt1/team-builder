@@ -33,6 +33,7 @@ const handleChanges = e => {
     setMember({...member, [e.target.name]: e.target.value});
 };
 
+//ask Reed about form not resetting
 const formSubmit = e =>{
     e.preventDefault();
     const newMember = {
